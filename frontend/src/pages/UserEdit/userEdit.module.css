@@ -1,0 +1,31 @@
+.container {
+    margin-top: 1rem;
+    margin-bottom: 10rem;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    margin: 1rem;
+    max-width: 25rem;
+    width: 100%;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+.error {
+    color: red;
+    font-size: 0.875rem;
+}

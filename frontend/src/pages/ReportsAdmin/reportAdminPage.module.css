@@ -1,0 +1,198 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.leftRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 90rem;
+    /* flex-wrap: wrap; */
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 3rem;
+    border: 1px solid whitesmoke;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.buttons div {
+    color: grey;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.buttons div.selected,
+.buttons div:hover {
+    color: white;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.chartContainer,
+.foodSales,
+.buttons {
+    max-width: 45rem;
+    width: 100%;
+}
+
+.foodSales {
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+
+.foodSales>* {
+    padding: 0.8rem;
+}
+
+.foodItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d4d4d4;
+    border-radius: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.foodImage {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0.5rem;
+}
+
+.foodItem:hover {
+    opacity: 0.8;
+}
+
+.foodImage img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 2rem;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.price {
+    color: darkgreen;
+}
+
+.foodDetails {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.foodDetails p {
+    margin: 0;
+}
+
+.chartContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.chart {
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.noData {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-weight: bold;
+}
+
+.costInput {
+    width: 100px;
+    margin-left: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.netProfit {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .foodSales {
+        margin-top: 0rem;
+    }
+
+    .leftRight {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons {
+        height: 100%;
+    }
+
+    .chartContainer {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .chart {
+        width: 100%;
+    }
+
+    .foodItem {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foodImage img {
+        width: 12rem;
+        height: 6rem;
+    }
+
+    .foodDetails {
+        text-align: center;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .buttons div {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        height: 100%;
+    }
+
+    .buttons div span {
+        display: block;
+        margin-top: 0.2rem;
+    }
+}

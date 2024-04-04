@@ -4,8 +4,42 @@
     align-items: center;
     height: 100%;
     margin-top: 3rem;
+    padding: 0 1rem;
+    /* Add padding to prevent content from touching the edges on mobile */
 }
 
 .details {
     width: 28rem;
+    background-color: #fff;
+    /* Optional: Add a background color for better readability */
+    padding: 1rem;
+    /* Add padding for better spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow for better separation */
+    border-radius: 1rem;
+    /* Add rounded corners */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .details {
+        width: 100%;
+        max-width: 30rem;
+        /* Set a max-width to prevent it from stretching too much */
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 0.5rem;
+        /* Increase padding to ensure content does not touch the edges */
+    }
+
+    .details {
+        width: 100%;
+        max-width: 25rem;
+        /* Set a smaller max-width for very small screens */
+        padding: 1rem;
+        /* Adjust padding for better spacing on small screens */
+    }
 }

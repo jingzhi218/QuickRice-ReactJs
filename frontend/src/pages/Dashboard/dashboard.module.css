@@ -1,0 +1,85 @@
+.dashboard {
+    background: linear-gradient(-45deg, #84fab0, #8fd3f4);
+    background-size: 400% 400%;
+    animation: gradientBackground 10s ease infinite;
+    padding: 2rem 0;
+}
+
+.dashboard2 {
+    height: 91.7vh;
+}
+
+.container {
+    margin: auto;
+    max-width: 70rem;
+    width: 100%;
+    padding: 1rem;
+
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    width: 22rem;
+    height: 11rem;
+    margin: 1.5rem 2rem;
+    background-color: whitesmoke;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #444444;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu img {
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.menu img:hover {
+    transform: scale(1.1);
+}
+
+.menu h2 {
+    font-size: 2.5rem;
+    margin-right: 2rem;
+    transition: color 0.3s ease;
+}
+
+.menu h2:hover {
+    color: #000;
+}
+
+@media (max-width: 576px) {
+    .menu a {
+        min-width: 21rem;
+    }
+}

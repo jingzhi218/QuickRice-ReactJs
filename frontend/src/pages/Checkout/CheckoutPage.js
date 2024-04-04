@@ -12,16 +12,17 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import OrderItemsList from '../../components/OrderItemsList/OrderItemsList';
 import Map from '../../components/Map/Map';
+import NotFound from '../../components/NotFound/NotFound';
 
 export default function CheckoutPage() {
     const { cart } = useCart();
     const { user } = useAuth();
     const navigate = useNavigate();
-    const [order, setOrder] = useState({...cart});
+    const [order, setOrder] = useState({ ...cart });
 
     const {
         register,
-        formState: {errors},
+        formState: { errors },
         handleSubmit,
     } = useForm();
 
@@ -31,52 +32,72 @@ export default function CheckoutPage() {
             return;
         }
 
-        await createOrder({...order, name: data.name, address: data.address});
+        await createOrder({ ...order, name: data.name, address: data.address });
         navigate('/payment');
     };
 
-  return (
-    <>
-    <form onSubmit={handleSubmit(submit)} className={classes.container}>
-        <div className={classes.content}>
-            <Title title="Order Form" fontSize="1.6rem" />
-            <div className={classes.inputs}>
-                <Input defaultValue={user.name}
-                label="Name"
-                {...register('name')}
-                error={errors.name}
-                />
-                <Input defaultValue={user.address}
-                label="Address"
-                {...register('address')}
-                error={errors.address}
-                />
-            </div>
-            <OrderItemsList order={order} />
-        </div>
+    const goToPayment = async () => {
+        if (!order.addressLatLng) {
+            toast.warning('Please select your location on the map');
+            return;
+        }
+
+        await createOrder({ ...order, name: user.name, address: "Take Away" });
+        navigate('/payment');
+    };
+
+    return (
+        <>{cart.items.length === 0 ? (
+            <NotFound message="Checkout Page Is Empty!" />
+        ) : (
+            <form onSubmit={handleSubmit(submit)} className={classes.container}>
+                <div className={classes.content}>
+                    <Title title="Order Form" fontSize="1.6rem" />
+                    <div className={classes.inputs}>
+                        <Input defaultValue={user.name}
+                            label="Name"
+                            {...register('name')}
+                            error={errors.name}
+                        />
+                        <Input defaultValue={user.address}
+                            label="Address"
+                            {...register('address')}
+                            error={errors.address}
+                        />
+                    </div>
+                    <OrderItemsList order={order} />
+                </div>
                 <div>
                     <Title title="Choose Your Location" fontSize="1.6rem" />
                     <Map
-                     location={order.addressLatLng}
-                     onChange={latlng => {
-                        console.log(latlng);
-                        setOrder({...order, addressLatLng: latlng});
-                     }}
-                     />
+                        location={order.addressLatLng}
+                        onChange={latlng => {
+                            console.log(latlng);
+                            setOrder({ ...order, addressLatLng: latlng });
+                        }}
+                    />
                 </div>
 
                 <div className={classes.buttons_container}>
                     <div className={classes.buttons}>
                         <Button type="submit"
-                        text="Go To Payment"
-                        width="100%"
-                        height="3rem"
+                            text="Delivery"
+                            width="100%"
+                            height="3rem"
+                        />
+                        <Button
+                            type="button"
+                            text="Go to Payment"
+                            width="100%"
+                            height="3rem"
+                            onClick={() => {
+                                goToPayment();
+                            }}
                         />
                     </div>
-            </div>
-
-        
-    </form>
-    </>
-  )
+                </div>
+            </form>
+            )}
+        </>
+    );
 }

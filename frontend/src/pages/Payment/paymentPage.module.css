@@ -36,3 +36,38 @@
     margin: 2rem;
     width: 35rem;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 0 1rem 4rem 1rem;
+    }
+
+    .content {
+        width: 100%;
+        margin: 0;
+    }
+
+    .summary h3 {
+        flex-basis: 4rem;
+    }
+
+    .buttons {
+        margin: 1rem;
+        width: 100%;
+    }
+
+    .buttons_container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .summary span {
+        font-size: 1rem;
+    }
+
+    .summary h3 {
+        font-size: 1rem;
+    }
+}

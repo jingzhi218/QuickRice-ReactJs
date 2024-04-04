@@ -25,7 +25,8 @@ export default function OrderTrackPage() {
   return (
     order && <div className={classes.container}>
         <div className={classes.content}>
-            <h1>Order #{order.id}</h1>
+            <h1>Order</h1>
+            {/* <h1>Order #{order.id}</h1> */}
             <div className={classes.header}>
                 <div>
                     <strong>Date</strong>
@@ -59,10 +60,21 @@ export default function OrderTrackPage() {
             <Map location={order.addressLatLng} readonly={true} />
         </div>
 
-        {
+        {/* {
             order.status === 'NEW' && (
                 <div className={classes.payment}>
                     <Link to="/payment"> Go To Payment</Link>
+                </div>
+            )
+        } */}
+        {
+            order.status === 'NEW' ? (
+                <div className={classes.payment}>
+                    <Link to="/payment"> Go To Payment</Link>
+                </div>
+            ) : (
+                <div className={classes.payment}>
+                    <Link to="/"> Go To Home Page</Link>
                 </div>
             )
         }

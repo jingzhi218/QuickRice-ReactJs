@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: wrap;
+    flex-wrap: wrap;
     margin: 3rem;
 }
 
@@ -97,4 +97,92 @@
 .container button:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+    }
+
+    .container>* {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .image {
+        height: auto;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .details {
+        padding: 1rem;
+        margin: 0rem;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .favorite {
+        font-size: 2rem;
+    }
+
+    .origins>span {
+        font-size: 1rem;
+        margin: 0.3rem 0.3rem 0 0;
+    }
+
+    .waitTime span {
+        font-size: 1.1rem;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        margin: 1rem 1rem 1rem 0;
+    }
+
+    .container button {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        margin: 0.5rem;
+    }
+
+    .details {
+        padding: 0.5rem;
+    }
+
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .favorite {
+        font-size: 1.5rem;
+    }
+
+    .origins>span {
+        font-size: 0.9rem;
+    }
+
+    .waitTime span {
+        font-size: 1rem;
+    }
+
+    .price {
+        font-size: 1.2rem;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    .container button {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
 }

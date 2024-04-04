@@ -9,7 +9,7 @@ export default function Tags({tags, forFoodPage}) {
         justifyContent: forFoodPage ? 'start' : 'center',
     }}>
         {tags.map(tag => (
-                <Link key={tag.name} to={`/tag/${tag.name}`}>
+                <Link key={tag.name} to={`/tag/${tag.name}`} className={classes.tag}>
                     {tag.name}
                     {!forFoodPage && `(${tag.count})`}
                 </Link>

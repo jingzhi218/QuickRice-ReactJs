@@ -4,10 +4,13 @@
     margin-top: 1rem;
     border-radius: 5px;
     padding: 0.5rem 1rem;
+    overflow-x: auto;
 }
 
 .table td {
     height: 3rem;
+    padding: 0.5rem;
+    text-align: center;
 }
 
 .table td img {
@@ -21,8 +24,51 @@
     margin-top: 0.5rem;
     margin-left: 0.3rem;
     color: grey;
+    text-align: left;
 }
 
 .table a:hover {
     opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table {
+        padding: 0.3rem;
+    }
+
+    .table td {
+        height: auto;
+        padding: 0.3rem;
+    }
+
+    .table td img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .table h3 {
+        font-size: 1.2rem;
+    }
+
+    .table td:nth-child(2),
+    .table td:nth-child(3),
+    .table td:nth-child(4),
+    .table td:nth-child(5),
+    .table td:nth-child(6) {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .table td,
+    .table h3 {
+        font-size: 0.8rem;
+    }
+
+    .table td img {
+        width: 2rem;
+        height: 2rem;
+    }
 }

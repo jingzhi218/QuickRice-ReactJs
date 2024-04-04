@@ -1,12 +1,11 @@
-import {model, Schema} from 'mongoose';
+import { model, Schema } from 'mongoose';
 import { OrderStatus } from '../constants/orderStatus.js';
 import { FoodModel } from './food.model.js';
 
-
 export const LatLngSchema = new Schema(
     {
-        lat: {type: String, required: true},
-        lng: {type: String, required: true},
+        lat: { type: String, required: true },
+        lng: { type: String, required: true },
     },
     {
         _id: false,
@@ -15,9 +14,11 @@ export const LatLngSchema = new Schema(
 
 export const OrderItemSchema = new Schema(
     {
-        food: { type: FoodModel.schema, required: true},
-        price: { type: Number, required: true},
-        quantity: { type: Number, required: true},
+        food: { type: FoodModel.schema, required: true },
+        price: { type: Number, required: true },
+        Bprice: { type: Number, required: true },
+        size: { type: String, required: true },
+        quantity: { type: Number, required: true },
     },
     {
         _id: false,
@@ -25,7 +26,8 @@ export const OrderItemSchema = new Schema(
 );
 
 OrderItemSchema.pre('validate', function (next) {
-    this.price = this.food.price * this.quantity;
+    this.price = this.size === 'Big' ? this.food.price * 1.5 * this.quantity : this.food.price * this.quantity;
+    this.Bprice = this.food.price * 1.5;
     next();
 });
 
@@ -46,7 +48,7 @@ const orderSchema = new Schema({
     },
     toObject: {
         virtuals: true,
-    },
+    }
 });
 
 export const OrderModel = model('order', orderSchema);

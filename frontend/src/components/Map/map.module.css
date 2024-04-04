@@ -5,6 +5,13 @@
     text-align: center;
 }
 
+@media (max-width: 768px) {
+    .container {
+        width: 22rem;
+    }
+
+}
+
 .map {
     width: 100% !important;
     height: 100% !important;
